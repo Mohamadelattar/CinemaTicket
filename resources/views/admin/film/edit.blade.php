@@ -29,7 +29,7 @@
                   </div>
                 @endif
                 <div class="row">
-                  <label class="col-sm-2 col-form-label">{{ __('Title') }}</label>
+                  <label class="col-sm-2 col-form-label">{{ __('Titre') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
                       <input class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="titre" id="input-title" type="text" placeholder="{{ __('Titre') }}" value="{{ old('titre', $film->titre ) }}" required="true" aria-required="true"/>
@@ -39,17 +39,29 @@
                     </div>
                   </div>
                 </div>
+                
                 <div class="row">
-                  <label class="col-sm-2 col-form-label">{{ __('Prix') }}</label>
-                  <div class="col-sm-7">
-                    <div class="form-group{{ $errors->has('prix') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('string') ? ' is-invalid' : '' }}" name="prix" id="input-prix" type="email" placeholder="{{ __('Prix') }}" value="{{ old('prix',$film->prix) }}" required />
-                      @if ($errors->has('string'))
-                        <span id="prix-error" class="error text-danger" for="input-prix">{{ $errors->first('string') }}</span>
-                      @endif
+                    <label class="col-sm-2 col-form-label">{{ __('Prix') }}</label>
+                    <div class="col-sm-7">
+                      <div class="form-group{{ $errors->has('prix') ? ' has-danger' : '' }}">
+                        <input class="form-control{{ $errors->has('prix') ? ' is-invalid' : '' }}" name="prix" id="input-title" type="text" placeholder="{{ __('Prix') }}" value="{{ old('prix', $film->prix ) }}" required="true" aria-required="true"/>
+                        @if ($errors->has('peix'))
+                          <span id="horaire-error" class="error text-danger" for="input-horaire">{{ $errors->first('prix') }}</span>
+                        @endif
+                      </div>
                     </div>
                   </div>
-                </div>
+                <div class="row">
+                    <label class="col-sm-2 col-form-label">{{ __('Horaire') }}</label>
+                    <div class="col-sm-7">
+                      <div class="form-group{{ $errors->has('horaire') ? ' has-danger' : '' }}">
+                        <input class="form-control{{ $errors->has('horaire') ? ' is-invalid' : '' }}" name="horaire" id="input-title" type="text" placeholder="{{ __('Horaire') }}" value="{{ old('horaire', $film->horaire ) }}" required="true" aria-required="true"/>
+                        @if ($errors->has('title'))
+                          <span id="horaire-error" class="error text-danger" for="input-horaire">{{ $errors->first('horaire') }}</span>
+                        @endif
+                      </div>
+                    </div>
+                  </div>
               </div>
               <div class="card-footer ml-auto mr-auto">
                 <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>

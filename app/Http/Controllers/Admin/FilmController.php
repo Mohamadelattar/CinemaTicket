@@ -71,7 +71,13 @@ class FilmController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $film = Film::find($id);
+         $film->titre = $request->input('titre');
+         $film->prix= $request->input('prix');
+         $film->horaire= $request->input('horaire');
+         $film->save();
+
+         return redirect('/film')->withStatus('Film successfully created.');
     }
 
     /**
