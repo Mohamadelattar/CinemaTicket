@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Film;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class FilmController extends Controller
      */
     public function index()
     {
-        return view('admin.film.index');
+        $films = Film::orderBy('id', 'desc')->paginate(5);
+        return view('admin.film.index',compact('films'));
     }
 
     /**
@@ -78,8 +80,9 @@ class FilmController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Film $film)
     {
-        //
+        $film->delete();
+        return redirect('/film')->withStatus('Film successfully deleted.');
     }
 }

@@ -8,7 +8,7 @@
         <div class="card">
           <div class="card-header card-header-primary">
             <h4 class="card-title ">Film Table</h4>
-            <p class="card-category"> Here is a subtitle for this table</p>
+            <p class="card-category"> Film table</p>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -21,73 +21,55 @@
                     Title
                   </th>
                   <th>
-                    Description
+                    Prix
                   </th>
                   <th>
-                    Price Ticket
+                   Horaire
                   </th>
                   <th>
-                    Time
+                    
                   </th>
                   <th>
-                    Date
+                    
                   </th>
-                  <th>
-                    Salle
-                  </th>
-                  <th>
-                    Reservations Limit
-                  </th>
-                  <th>
-                    Reservations Number
-                  </th>
+ 
                   <th></th>
                   <th></th>
                 </thead>
                 <tbody>
+                  @foreach($films as $film)
                   <tr>
                     <td>
-                      1
+                      {{ $film->id  }}
                     </td>
                     <td>
-                      Dakota Rice
+                      {{ $film->titre  }}
                     </td>
                     <td>
-                      Niger
+                      {{ $film->prix  }}
                     </td>
                     <td>
-                      Oud-Turnhout
+                      {{ $film->horaire  }}
                     </td>
                     <td>
-                      Oud-Turnhout
-                    </td>
-                    <td class="text-primary">
-                      $36,738
-                    </td>
-                    <td class="text-primary">
-                      $36,738
-                    </td>
-                    <td class="text-primary">
-                      $36,738
-                    </td>
-                    <td class="text-primary">
-                      $36,738
-                    </td>
-                    <td>
-                    <div class="card-footer ml-auto mr-auto">
-                        <a href="{{ route('film.edit', $film) }}" class=" ">
-                           <button type="submit" class="btn btn-primary">{{ __('Edit') }}</button>
+                      <div class="card-footer ml-auto mr-auto"> 
+                        <a class=" " href="{{ route('film.edit', $film) }}">
+                         <button type="submit" class="btn btn-primary">{{ __('Edit') }}</button>
                         </a>
-                      
-                    </div>
-                    </td>
+                      </div>
+                  </td>
+                      <form  method="POST" action="{{ route('film.destroy', $film) }}">
+                        @csrf
+                        @method('DELETE')
+                        
                     <td>
-                    <div class="card-footer ml-auto mr-auto">
-                      <button type="submit" class="btn btn-primary">{{ __('Delete') }}</button>
-                    </div>
+                        <div class="card-footer ml-auto mr-auto">
+                          <input class="btn btn-primary" type="submit" value="Delete" name="deletefilm">
+                        </div>
                     </td>
+                  </form>
                   </tr>
-                   
+                  @endforeach
                 </tbody>
               </table>
             </div>

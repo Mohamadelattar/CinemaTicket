@@ -24,7 +24,7 @@
             <p>{{ __('Client') }}</p>
         </a>
       </li>
-      <li class="nav-item{{ $activePage == '/film' ? ' active' : '' }}">
+      <li class="nav-item{{ $activePage == 'film' ? ' active' : '' }}">
         <a class="nav-link" href='film'>
           <i class="material-icons">content_paste</i>
             <p>{{ __('Film') }}</p>

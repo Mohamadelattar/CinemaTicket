@@ -86,8 +86,9 @@ class ActeurController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Acteur $acteur)
     {
-        //
+        $acteur->delete();
+        return redirect('/acteur')->withStatus('Acteur successfully deleted.');
     }
 }

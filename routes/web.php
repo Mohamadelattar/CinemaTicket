@@ -26,7 +26,7 @@ Auth::routes();
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
-	Route::resource('/film', 'App\Http\Controllers\Admin\FilmController');
+	Route::resource('film', 'App\Http\Controllers\Admin\FilmController');
  
 	Route::resource('acteur', 'App\Http\Controllers\Admin\ActeurController');
 

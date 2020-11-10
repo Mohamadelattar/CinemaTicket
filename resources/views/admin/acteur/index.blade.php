@@ -33,17 +33,21 @@
                         {{ $acteur->nom  }}
                     </td>
                     <td>
-                    <div class="card-footer ml-auto mr-auto"> 
-                        <a class=" " href="{{ route('acteur.edit', $acteur) }}">
+                      <form  method="POST" action="{{ route('acteur.destroy', $acteur) }}">
+                        @csrf
+                        @method('DELETE')
+                        <div class="card-footer ml-auto mr-auto"> 
+                          <a class=" " href="{{ route('acteur.edit', $acteur) }}">
                            <button type="submit" class="btn btn-primary">{{ __('Edit') }}</button>
                           </a>
-                    </div>
+                        </div>
                     </td>
                     <td>
-                    <div class="card-footer ml-auto mr-auto">
-                      <button type="submit" class="btn btn-primary">{{ __('Delete') }}</button>
-                    </div>
+                        <div class="card-footer ml-auto mr-auto">
+                          <input class="btn btn-primary" type="submit" value="Delete" name="deleteacteur">
+                        </div>
                     </td>
+                  </form>
                   </tr>
                   @endforeach
                 </tbody>
